@@ -1,0 +1,43 @@
+apiVersion: api.ubuntu.matrix.com/v1alpha1
+kind: Scaler
+metadata:
+  labels:
+    app.kubernetes.io/name: scaler
+    app.kubernetes.io/instance: scaler-sample
+    app.kubernetes.io/part-of: scaler
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: scaler
+  name: scaler-sample
+spec:
+  # TODO(user): Add fields here
+  start: 0
+  end: 12
+  replicas: 5
+  deployments:
+    - name: my-dep
+      namespace: default
+    - name: test
+      namespace: test
+
+---
+
+apiVersion: api.ubuntu.matrix.com/v1alpha1
+kind: Scaler
+metadata:
+  labels:
+    app.kubernetes.io/name: scaler2
+    app.kubernetes.io/instance: scaler-sample2
+    app.kubernetes.io/part-of: scaler
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: scaler
+  name: scaler-sample2
+spec:
+  # TODO(user): Add fields here
+  start: 13
+  end: 24
+  replicas: 2
+  deployments:
+    - name: my-dep
+      namespace: default
+    - name: test
+      namespace: test
